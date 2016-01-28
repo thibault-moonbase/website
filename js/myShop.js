@@ -54,7 +54,9 @@ function loginPanelVisiblity(param)
 function btnLoginCall()
 {
 	$('#myLoginModal').modal('hide');
-	alert('Call service to data for login user..');
+	var email = $("#txtLoginEmail").val();
+	var pass = $("#txtLoginPassword").val();
+	alert('Your email :- '+email+ "   and pass is:-  "+ pass);
 }
 
 function btnRegisterCall()
