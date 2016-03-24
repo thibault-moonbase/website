@@ -59,7 +59,7 @@
 					<li>
                         <a href="#"  onclick= "loginPanelVisiblity('R');">Sign Up</a>
                     </li>
-					
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -70,7 +70,7 @@
 
 	<div class="container">
 
-	
+
 		<!--Do not delet this -->
 		<div class="alert alert-success">
 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -91,8 +91,8 @@
 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
 </div>
-	
-	
+
+
     <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
             <table class="table table-hover">
@@ -105,7 +105,7 @@
                         <th> </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="shoppingCart">
                     <tr>
                         <td class="col-sm-8 col-md-6">
                         <div class="media">
@@ -184,7 +184,7 @@
             </table>
         </div>
     </div>
-	
+
 	 <footer>
             <div class="row">
                 <div class="col-lg-12">
@@ -193,14 +193,14 @@
             </div>
         </footer>
 
-		
+
 		<!-- My modals ... -->
 		<div class="modal fade" id="myLoginModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div id="loginPanel">
 						<div class="modal-header">
-							 
+
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 								×
 							</button>
@@ -210,14 +210,14 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-					 
+
 					<label for="exampleInputEmail1">
 						Email address
 					</label>
 					<input type="email" class="form-control" id="txtLoginEmail" />
 				</div>
 							<div class="form-group">
-					 
+
 					<label for="exampleInputPassword1">
 						Password
 					</label>
@@ -227,19 +227,19 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-danger" onclick="loginPanelVisiblity('P');">
 								Forgot Password
-							</button>  
+							</button>
 							<button type="button" class="btn btn-success" onclick="loginPanelVisiblity('R');">
 								Register
-							</button> 
+							</button>
 							<button id="btnLogin" type="button" class="btn btn-primary">
 								Login
 							</button>
 						</div>
 						</div>
-					
+
 					<div id="registerPanel">
 						<div class="modal-header">
-							 
+
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 								×
 							</button>
@@ -249,21 +249,21 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-					 
+
 					<label for="exampleInputEmail1">
 						Email address
 					</label>
 					<input type="email" class="form-control" id="txtRegEmail" />
 				</div>
 							<div class="form-group">
-					 
+
 					<label for="exampleInputPassword1">
 						Password
 					</label>
 					<input type="password" class="form-control" id="txtRegPassword" />
 				</div>
 				<div class="form-group">
-					 
+
 					<label for="exampleInputPassword1">
 						Repeat Password
 					</label>
@@ -271,10 +271,10 @@
 				</div>
 						</div>
 						<div class="modal-footer">
-							 
+
 							<button type="button" class="btn btn-success" onclick="loginPanelVisiblity('L');">
 								Login
-							</button> 
+							</button>
 							<button id="btnRegister" type="button" class="btn btn-primary">
 								Register
 							</button>
@@ -282,7 +282,7 @@
 						</div>
 					<div id="forgotPasswordPanel">
 						<div class="modal-header">
-							 
+
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 								×
 							</button>
@@ -292,31 +292,31 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-					 
+
 					<label for="exampleInputEmail1">
 						Email address
 					</label>
 					<input type="email" class="form-control" id="txtFPEmail" />
 				</div>
-							
+
 						</div>
 						<div class="modal-footer">
-							 
+
 							<button type="button" class="btn btn-success" onclick="loginPanelVisiblity('L');">
 								Login
-							</button> 
+							</button>
 							<button id="btnPassword" type="button" class="btn btn-primary">
 								Reset password
 							</button>
 						</div>
 						</div>
-					
+
 					</div>
-					
+
 				</div>
-				
+
 			</div>
-	
+
 </div>
 
     <!-- jQuery -->
