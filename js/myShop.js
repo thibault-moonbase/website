@@ -3,7 +3,7 @@ setEnvVar();
 });
 
 $(window).load(function() {
-
+$('.msgPanel').hide();
 
 });
 
@@ -294,10 +294,10 @@ function loadCart() {
 }
 
 function myProductHtmlTempl(item) {
-  var html = '<div class="col-md-3 col-sm-6 hero-feature"><div class="thumbnail"><img src="' + item.image + '" alt="">' +
-    '<div class="caption"><h3>' + item.name + '</h3><p>' + item.description + '</p><p>' +
-    ' <a href="#" id="btnAddToCart' + item.item_id + '" class="btn btn-primary">Add to Cart!</a> <a href="#" class="btn btn-default">' + item.price + '</a></p>' +
-    '</div> </div> </div>';
+  var html = '<div class="col-md-3 hero-feature"><div class="thumbnail"><img src="' + item.image + '" alt="" style="height:150px">' +
+    '<div class="caption"><h3>' + item.name + '</h3><p>' + item.description + '</p></div><div>' +
+    ' <a href="#" id="btnAddToCart' + item.item_id + '" class="btn btn-primary">Add to Cart!</a> <a href="#" class="btn btn-default">' + item.price + '$</a></div>' +
+    '</div></div>';
 
   // Register button
   // alert("btnAddToCart"+item.item_id);
@@ -312,7 +312,7 @@ function cartHtmlTempl(name, image, price, quantity, item_id) {
   var html = '<tr>' +
     '<td class="col-md-6">' +
     '<div class="media">' +
-    '<a class="thumbnail pull-left" href="#"> <img class="media-object" src="' + image + '" style="width: 72px; height: 72px;"> </a>' +
+    '<a class="pull-left" href="#"> <img class="media-object" src="' + image + '" style="width: 72px; height: 72px;"> </a>' +
     '<div class="media-body">' +
     '<h4 class="media-heading"><a href="#">' + name + '</a></h4>' +
     '<h5 class="media-heading"> by <a href="#">Brand name</a></h5>' +
