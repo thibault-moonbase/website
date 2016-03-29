@@ -9,6 +9,11 @@ $(window).load(function() {
 
 });
 
+// Here
+var endpointAccount = "http://staging--shop--account--a6cc3a.shipped-cisco.com"
+var endpointCart = "http://staging--shop--cart--26a94c.shipped-cisco.com"
+var endpointCatalog = "http://staging--shop--catalog--dba7f3.shipped-cisco.com"
+
 function init() {
   $("#btnLogin").click(function() {
     btnLoginCall();
@@ -55,8 +60,9 @@ function btnLoginCall() {
   var pass = $("#txtLoginPassword").val();
   // alert('Your email :- ' + email + "   and pass is:-  " + pass);
   // curl -i -X GET -H "Content-Type: application/json" http://localhost:8888/v1/catalog/1?mock=true
+
   $.ajax({
-    url: 'http://localhost:8886/v1/account/',
+    url: endpointAccount + '/v1/account/',
     type: 'POST',
     dataType: 'json',
     data: JSON.stringify({
@@ -103,8 +109,11 @@ function btnForgotPasswordCall() {
 function btnAddToCart(item_id) {
   // //ajax call .. to your get all iteams api
   // $ curl -i -X GET -H "Content-Type: application/json" http://localhost:8888/v1/catalog/1?mock=true
+  // Cart
+  // Enndpoint CART_HOST
+
   $.ajax({
-    url: 'http://localhost:8888/v1/cart/' + item_id + '?mock=true',
+    url: endpointCart + '/v1/cart/' + item_id + '?mock=true',
     type: 'POST',
     dataType: 'json',
     success: function(data) {
@@ -129,8 +138,9 @@ function btnAddToCart(item_id) {
 function btnRemoveCartItem(item_id) {
   // //ajax call .. to your get all iteams api
   // $ curl -i -X GET -H "Content-Type: application/json" http://localhost:8888/v1/catalog/1?mock=true
+
   $.ajax({
-    url: 'http://localhost:8888/v1/cart/' + item_id + '?mock=true',
+    url: endpointCart + '/v1/cart/' + item_id + '?mock=true',
     type: 'DELETE',
     dataType: 'json',
     success: function(data) {
@@ -156,8 +166,9 @@ function btnRemoveCartItem(item_id) {
 
 function btnCheckout() {
   // //ajax call .. to your get all iteams api
+
   $.ajax({
-    url: 'http://localhost:8888/v1/order/',
+    url: endpointCart +'/v1/order/',
     type: 'GET',
     dataType: 'json',
     success: function(data) {
@@ -182,10 +193,11 @@ function btnCheckout() {
 
 function loadItems() {
   var htmlProductAPI = "";
+
   // //ajax call .. to your get all iteams api
   // $ curl -i -X GET -H "Content-Type: application/json" http://localhost:8888/v1/catalog/1?mock=true
   $.ajax({
-    url: 'http://localhost:8889/v1/catalog/?mock=true',
+    url: endpointCatalog + '/v1/catalog/?mock=true',
     type: 'GET',
     dataType: 'json',
     success: function(data) {
@@ -207,8 +219,9 @@ function loadCart() {
   var subtotal = 0;
   // //ajax call .. to your get all iteams api
   // $ curl -i -X GET -H "Content-Type: application/json" http://localhost:8888/v1/catalog/1?mock=true
+
   $.ajax({
-    url: 'http://localhost:8888/v1/cart/?mock=true',
+    url: endpointCart +'/v1/cart/?mock=true',
     type: 'GET',
     dataType: 'json',
     success: function(cartData) {
@@ -221,7 +234,7 @@ function loadCart() {
       for (var i = 0, l = cartData.items.length; i < l; i++) {
         var item = cartData.items;
         $.ajax({
-          url: 'http://localhost:8889/v1/catalog/' + item[i].item_id + '?mock=true',
+          url: endpointCatalog + '/v1/catalog/' + item[i].item_id + '?mock=true',
           type: 'GET',
           dataType: 'json',
           success: function(itemData) {
