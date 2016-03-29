@@ -1,7 +1,5 @@
 $(document).ready(function() {
-
-  init();
-
+setEnvVar();
 });
 
 $(window).load(function() {
@@ -10,9 +8,9 @@ $(window).load(function() {
 });
 
 // Here
-var endpointAccount = "http://staging--shop--account--a6cc3a.shipped-cisco.com"
-var endpointCart = "http://staging--shop--cart--26a94c.shipped-cisco.com"
-var endpointCatalog = "http://staging--shop--catalog--dba7f3.shipped-cisco.com"
+var endpointAccount //= "http://staging--shop--account--a6cc3a.shipped-cisco.com"
+var endpointCart //= "http://staging--shop--cart--26a94c.shipped-cisco.com"
+var endpointCatalog //= "http://staging--shop--catalog--dba7f3.shipped-cisco.com"
 
 function init() {
   $("#btnLogin").click(function() {
@@ -34,7 +32,32 @@ function init() {
   checkCookie();
 }
 
-
+function setEnvVar()
+{
+	$.ajax({
+    url: '/endpoints',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+		if(data.Account)
+		{
+			endpointAccount = data.Account;
+		}
+		 if(data.Catalog)
+		{
+			endpointCatalog = data.Catalog;
+		}
+		 if(data.Cart)
+		{
+			endpointCart = data.Cart;
+		}
+		init();
+    },
+    error: function(request, error) {
+      console.log("Endpoint not working");
+    }
+  });
+}
 //Param -- L = to visible loginPanel, R = to visisble Register Panel, P = to visible forgot password panel.
 function loginPanelVisiblity(param) {
   $('#myLoginModal').modal('show');
