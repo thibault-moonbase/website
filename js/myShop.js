@@ -1,5 +1,8 @@
 $(document).ready(function() {
-setEnvVar();
+    setEnvVar();
+    checkIfUserLoggedIn();
+    
+    
 });
 
 $(window).load(function() {
@@ -69,7 +72,11 @@ function loginPanelVisiblity(param) {
     $("#forgotPasswordPanel").show();
     $("#registerPanel").hide();
     $("#loginPanel").hide();
-  } else {
+  } else if(param == 'S'){
+    removeUserInfo();
+      loginPanelVisiblity('L')
+  }
+    else {
     //Default Login Panel
     $("#forgotPasswordPanel").hide();
     $("#registerPanel").hide();
@@ -94,14 +101,17 @@ function btnLoginCall() {
     }),
     success: function(data) {
       // alert('Data: ' + JSON.stringify(data));
+        $("#txtLoginEmail").val('');
+        $("#txtLoginPassword").val('');
       $('#success-alert').html("<div class='alert alert-success'>" + JSON.stringify(data.username) + "</div>");
       $("#success-alert").alert();
       $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
         $("#success-alert").hide()
       });
 
-      setCookie("username", email, 365);
-      $('#userWelcome').html("Welcome " + email + "!");
+      //setCookie("username", email, 365);
+      ///setupUserInfo(email);
+        setupUserInfo(data.username);
     },
     error: function(request, error) {
       // alert("Request: " + JSON.stringify(request));
@@ -127,6 +137,27 @@ function btnForgotPasswordCall() {
 function btnForgotPasswordCall() {
   $('#myLoginModal').modal('hide');
   alert('Call service to data for Forgot Password user..');
+}
+
+function removeUserInfo(){
+    localStorage.removeItem("username");
+      $('#user-email').html('');
+      $('.after-login').toggleClass('hide');
+      $('.before-login').toggleClass('hide');
+}
+
+function setupUserInfo(email){
+    localStorage.setItem("username", email);
+      $('#user-email').html(email);
+      $('.after-login').toggleClass('hide');
+      $('.before-login').toggleClass('hide');
+}
+
+function checkIfUserLoggedIn(){
+    var useremail = localStorage.getItem("username");
+    if(useremail != null){
+        setupUserInfo(useremail);
+    }
 }
 
 function btnAddToCart(item_id) {

@@ -40,11 +40,17 @@
           <li>
             <a href="#">Contact</a>
           </li>
-          <li>
+          <li class="before-login">
             <a href="#" onclick="loginPanelVisiblity('L');">Sign In</a>
           </li>
-          <li>
+          <li class="before-login">
             <a href="#" onclick="loginPanelVisiblity('R');">Sign Up</a>
+          </li>
+            <li class="after-login hide">
+                <a href="#"  onclick= "javascript:void();">Welcome <span id="user-email"></span>!</a>
+            </li>
+            <li class="after-login hide">
+            <a href="#" onclick="loginPanelVisiblity('S');">Sign Out</a>
           </li>
           <li>
             <a href="cart.html">Cart</a>
